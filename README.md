@@ -134,7 +134,7 @@ class Entity {
         canvas.applyMatrix(a, b, c, d, tx, ty)
 
         entities.forEach(entity => {
-            if (entity.type === 'HighLevelComponent') rend.draw(world)
+            if (entity.type === 'HighLevelComponent') entity.draw(world)
             // ...
         })
 
