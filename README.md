@@ -1,3 +1,6 @@
+__NOTE__ The implementation of Asteroids is currently a work-in-progress. The code will be made
+available on GitHub once it is complete.
+
 # Asteroids
 _A game framework for the web._
 
@@ -57,16 +60,17 @@ world.draw = _ => {
 
     if (MouseLeft.active) projectiles.concat(ship.fire())
 
-    return [stars, ship, ...projectiles] // Render these components
+    return [stars, ship, ...projectiles] // Render these entities
 }
 ```
 
 ## Components
 
-A component is a pure function that converts a state object into more components. For example,
-a `Hand` component could take a state of `{ fingers: 5 }` and it would return 5 `Finger`
-components. __One__ way to create a component is with an array of objects that contain state
-(must be an integer or float) and image data (is optional, can be a promise):
+A component is a blueprint for an entity. In JavaScript, it is actually a `Class` that can instantiate
+entities. One may define a component by creating a pure function that takes state and returns entities.
+A `new Hand` entity for example might accept a state of `{ fingers: 5 }` and return 5 `new Finger`s.
+__One__ way to define a component is with an array of objects that contain image data (is optional, can
+be a promise) and a corresponding state (whose properties must be numeric):
 
 ```js
 const Finger = Component([
@@ -80,8 +84,7 @@ for rendering images and hitboxes into the game.
 
 Alternatively, one may create a component that is responsible for rendering other components.
 This is called a __high-level component__ and is created by calling `Component` with a function
-that returns an array of `Entity`s. If we think of the `Finger` component as a blueprint, then
-`new Finger` is an entity. 
+that returns an array of `Entity`s.
 
 ```js
 const Hand = Component(({ healthy }) => [
@@ -112,7 +115,7 @@ to read and modify the current state of the viewport (where it is looking at for
 
 Entities are lightweight, stateful objects whose blueprint is a component. The state is
 initialized upon instantiation via `new MyComponent({...state})`. Entity contruction for low-level
-components is one reason why all state must be an integer or float. The JavaScript `find` function
+components is one reason why all state must be numeric. The JavaScript `find` function
 is used to round the state values in the constructor to the nearest integer and find the first
 low-level entity that matches all of the values specified. The state also consists of a
 transformation matrix (`entity.matrix`), position, velocity, acceleration, and a shader. Think of
@@ -191,8 +194,8 @@ will fulfill. The `speed` is the integers per frame that the `prop` will by modi
 Setting a component's `animationSpeed` will globally modify `speed` so it may be easier
 to read.
 
-Animation is another reason why state values must be integers or floats. It allows the
-rendering process to find the closest renderable value to the current state of the object.
+Animation is another reason why state values must be numeric. It allows the rendering process
+to find the closest renderable value to the current state of the object.
 
 Here is another example to illustrate the capabilities of the animation API:
 
