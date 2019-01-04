@@ -2,7 +2,7 @@ __NOTE__ The implementation of Asteroids is currently a work-in-progress. The co
 available on GitHub once it is complete.
 
 # Asteroids
-_A game framework for the web._
+_A lightweight 2D game engine._
 
 The problem I notice with most game engines is they try to do too much at once. This is a
 problem is software in general. Take Photoshop for example. There is a menu item to accomplish
