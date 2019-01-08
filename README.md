@@ -1,4 +1,5 @@
-__NOTE__ The implementation of Asteroids is currently a work-in-progress. The code will be made
+# Work-in-progress
+The implementation of Asteroids is currently a work-in-progress. The code will be made
 available on GitHub once it is complete.
 
 # Asteroids
