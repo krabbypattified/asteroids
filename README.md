@@ -1,14 +1,19 @@
-# Work-in-progress
-The implementation of Asteroids is currently a work-in-progress. The code will be made
-available on GitHub once it is complete.
+[core]: https://gist.github.com/krabbypattified/414ee3ee8150be619a56771c16d5f50b
+[collision]: https://gist.github.com/krabbypattified/0f121ac9066fb7f1f42971275b0ce658
 
-[Broad-phase Collision Detection O(n)](https://gist.github.com/krabbypattified/0f121ac9066fb7f1f42971275b0ce658)
+# Work-in-progress
+The implementation of Asteroids is currently a work-in-progress. The code will be released in
+this repository once it is ready for production. Here are specifications I am actively working on:
+
+[Asteroids Core](core)
+
+[Broad-phase Collision Detection O(n)](collision)
 
 # Asteroids
 _A lightweight 2D game engine._
 
 The problem I notice with most game engines is they try to do too much at once. This is a
-problem is software in general. Take Photoshop for example. There is a menu item to accomplish
+problem with software in general. Take Photoshop for example. There is a menu item to accomplish
 any task, but this creates a heavyweight program with a steep learning curve. There is a
 principle in the SOLID design principles called the Interface segregation principle. It states
 that no client should be forced to depend on methods it does not use. Keeping the Photoshop
@@ -16,17 +21,24 @@ analogy, Sketch was invented to replace the core functionality of Photoshop with
 size and at least a 10x faster learning curve. The motivation for this project is the same
 as software like Node.js, Koa, React, and Sketch: to create a simple, focused API for
 modularizing the components of a larger problem, in this case: video games. Much like Sketch is
-a simple program with core functionality and extendable plugins, _Asteroids_ contains only a
-basic framework for rendering objects and leaves the core algorithms (like collision) 100% up to
-the developer.
+a simple program with core functionality and extendable plugins, the `asteroids` NPM module is
+a blank canvas with its own module system where developers may define and extend values in
+the library. The _Asteroids Core_ itself is a collection of modules. This means _Asteroids_ is
+100% what you love in a game engine and 0% what you hate in a game engine. 
 
 <!-- TODO Working Gif -->
+
+###  _TODO_ Update everything below to match the specification.
+
+## Module system
+
+See [Asteroids Core](core) Module.js
 
 ## Composing the game
 
 This is an example of a game created with _Asteroids_. Without even understanding the game engine,
-it is possible to understand what is happening due to the same mechanisms that make React apps
-easy to understand. Everything is abstracted just enough, but not too much.
+it is possible to understand what is happening due to the same declarative mechanisms that make React
+apps easy to understand. Everything is abstracted just enough, but not too much.
 
 ```js
 import { World, Controls } from 'asteroids'
@@ -66,6 +78,12 @@ world.draw = _ => {
     return [stars, ship, ...projectiles] // Render these entities
 }
 ```
+
+
+
+<!-- TODO revise everything below, outdated-->
+
+
 
 ## Components
 
