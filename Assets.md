@@ -2,7 +2,7 @@
 
 _A programming pattern for managing assets._
  
- ```
+ ```js
 const assets = {
   sword: {
     short: import('./Sword/short.png'),
