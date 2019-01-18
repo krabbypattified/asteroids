@@ -5,9 +5,9 @@
 The implementation of Asteroids is currently a work-in-progress. The code will be released in
 this repository once it is ready for production. Here are specifications I am actively working on:
 
-[Asteroids Core](core)
+[Asteroids Core][core]
 
-[Broad-phase Collision Detection O(n)](collision)
+[Broad-phase Collision Detection O(n)][collision]
 
 # Asteroids
 _A lightweight 2D game engine._
@@ -32,7 +32,7 @@ the library. The _Asteroids Core_ itself is a collection of modules. This means 
 
 ## Module system
 
-See [Asteroids Core](core) Module.js
+See [Asteroids Core][core] Module.js
 
 ## Composing the game
 
