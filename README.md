@@ -2,7 +2,7 @@
 The implementation of Asteroids is currently a work-in-progress. The code will be made
 available on GitHub once it is complete.
 
-![Broad-phase Collision Detection O(n)](https://gist.github.com/krabbypattified/0f121ac9066fb7f1f42971275b0ce658)
+[Broad-phase Collision Detection O(n)](https://gist.github.com/krabbypattified/0f121ac9066fb7f1f42971275b0ce658)
 
 # Asteroids
 _A lightweight 2D game engine._
