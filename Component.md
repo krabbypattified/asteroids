@@ -1,6 +1,6 @@
 ## Component
 
-_Like HTML components but for game entities._
+_Like React/HTML components but for game entities._
 
 ```js
 class Sword extends Component {
