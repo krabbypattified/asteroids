@@ -2,7 +2,7 @@
 [collision]: https://gist.github.com/krabbypattified/0f121ac9066fb7f1f42971275b0ce658
 
 # Work-in-progress
-The implementation of Asteroids is currently a work-in-progress. The code will be released in
+Asteroids is currently a work-in-progress. The code will be released in
 this repository once it is ready for production. Here are specifications I am actively working on:
 
 [Asteroids Core][core]
