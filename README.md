@@ -25,10 +25,6 @@ the library. The _Asteroids Core_ itself is a collection of modules. This means 
 
 See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Module.md)
 
-## Composing the game
-
-See [Example](https://github.com/krabbypattified/asteroids/tree/master/Example)
-
 ## Components
 
 A component is a blueprint for an object in the game. They are composed into a component tree.
@@ -42,6 +38,10 @@ See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Anim
 # Collision
 
 See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/BroadCollision.md)
+
+## Example
+
+See [Example](https://github.com/krabbypattified/asteroids/tree/master/Example)
 
 ## More to come
 
