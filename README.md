@@ -32,7 +32,7 @@ the library. The _Asteroids Core_ itself is a collection of modules. This means 
 
 ## Module system
 
-See [Asteroids Core][core] Module.js
+See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Module.md)
 
 ## Composing the game
 
