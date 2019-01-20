@@ -27,7 +27,7 @@ See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Module.
 
 ## Composing the game
 
-See [Example.md](https://github.com/krabbypattified/asteroids/blob/master/Example.md)
+See [Example](https://github.com/krabbypattified/asteroids/tree/master/Example)
 
 ## Components
 
