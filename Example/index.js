@@ -10,10 +10,8 @@ const ship = new Ship({ health: 3, booster: 3 })
 const projectiles = []
 
 // Controls
-const KeyF = Input.KeyF
-const MouseLeft = Input.MouseLeft
-const arrowKeys = Input.WASD
-const mouse = Input.MouseRelative(world, ship) // Mouse in world relative to ship position
+const { KeyF, MouseLeft, WASD } = Input
+const mouse = Input.MouseRelative(ship) // Mouse in world relative to ship position
 
 // Fullscreen keybind
 KeyF.down(_ => (world.fullscreen = !world.fullscreen))
@@ -27,7 +25,7 @@ world.draw = _ => {
 
     ship.steerTo(mouse.position)
 
-    if (arrowKeys.active) ship.accelerate(arrowKeys.position)
+    if (WASD.active) ship.accelerate(WASD.position)
     else ship.decelerate()
 
     if (MouseLeft.active) projectiles.concat(ship.fire())
