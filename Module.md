@@ -26,13 +26,13 @@ export default {
   },
   
   /**
-   * Hook to extend existing classes in the library  by returning them
+   * Hook to extend existing classes in the library by returning them
    */
   extend(library) {
-    const proto = library.Component.prototype
-    const { created } = proto
+    const { prototype } = library.Component
+    const { created } = prototype
     
-    proto.created = function() {
+    prototype.created = function() {
       Object.assign(this, this.animations)
       created()
     }
