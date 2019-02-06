@@ -1,12 +1,13 @@
 import Library from 'asteroids'
 import core from 'asteroids/core'
 
-const lib = new Library({
+const game = new Game({
   el: 'canvas',  // modules can utilize config
-  getContext: { antialias: true },
+  getContext: { antialias: true, imageSmoothingEnabled: false },
+  scale: 4,
   modules: [core],
 })
 
-const { Component } = lib
+const { Component } = game
 
 export { Component }
