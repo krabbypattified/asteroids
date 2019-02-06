@@ -1,6 +1,6 @@
 # Work-in-progress
 Asteroids is currently a work-in-progress. The implementation will be released in this repository
-once it is ready for production. The draft specifications that may be found in this repository.
+once it is ready for production. Draft specifications may be found in this repository.
 
 # Asteroids
 _A lightweight 2D game engine._
