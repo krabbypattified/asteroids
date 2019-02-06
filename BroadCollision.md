@@ -1,6 +1,6 @@
 ## Broad Collision
 
-_An algorithm for broad collision detection in O(n) time complexity._
+_An algorithm for AABB broad collision detection in O(n) time complexity._
 
 ## Configuration
 ```js
