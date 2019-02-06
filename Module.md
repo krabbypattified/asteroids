@@ -11,6 +11,7 @@ export default {
   
   /**
    * Hook into a new game, i.e. new Game(configuration)
+   * Define a new configuration setting by returning it
    */
   initialize(configuration) {
     return { animationSetting }
