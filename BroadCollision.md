@@ -80,8 +80,8 @@ foreach iteration
 ```
 
 ### Chunk Creation
-- objective : recursively bisect the space in two dimensions so each chunk only needs to check collision for max X entities
-- time complexity : O(n/k) n = entities, k = maximum entities allowed per chunk
+- objective : recursively bisect the space in two dimensions so each chunk only needs to check collision for max N entities
+- time complexity : O(n) n = entities
 
 ```
 foreach dimension
