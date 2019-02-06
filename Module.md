@@ -13,7 +13,7 @@ export default {
    * Hook into a new game, i.e. new Game(configuration)
    */
   initialize(configuration) {
-    return { ...configuration, animationSetting }
+    return { animationSetting }
   }
   
   /**
