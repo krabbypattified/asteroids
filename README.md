@@ -39,7 +39,7 @@ State interpolation for components.
 
 See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Animation.md)
 
-# Collision (Module)
+## Collision (Module)
 
 O(n) AABB collision for objects.
 
