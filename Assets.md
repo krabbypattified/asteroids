@@ -12,7 +12,7 @@ const assets = {
 
 // Example usage (a low-level component)
 const Blade = Renderable([
-  [ State({length: 1}), assets.sword.short ],
-  [ State({length: 2}), assets.sword.long ],
+  [ {length: 1}, assets.sword.short ],
+  [ {length: 2}, assets.sword.long ],
 ])
 ```
