@@ -29,7 +29,8 @@ export default {
    * Hook to extend existing classes in the library by returning them
    */
   extend(library) {
-    const { prototype } = library.Component
+    const { Component } = library
+    const { prototype } = Component
     const { created } = prototype
     
     prototype.created = function() {
@@ -37,7 +38,7 @@ export default {
       created()
     }
     
-    return { Component: library.Component }
+    return { Component }
   },  
 }
 ```
