@@ -1,6 +1,6 @@
 ## Module
 
-_Every functionality in asteroids is separated into a module. This is what a module looks like._
+_Every functionality in asteroids is separated into a module. This is how a module is defined._
 
 ```js
 import core from 'asteroids/core'
