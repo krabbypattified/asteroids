@@ -23,21 +23,23 @@ the library. The _Asteroids Core_ itself is simply a collection of modules. This
 
 ## Module system
 
+The core functionality of _Asteroids_ are found in a collection of modules.
+
 See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Module.md)
 
-## Components
+## Component (Module)
 
 A component is a blueprint for an object in the game. They are composed and instantiated into a virtual DOM.
 
 See [Component.md](https://github.com/krabbypattified/asteroids/blob/master/Component.md)
 
-## Animation
+## Animation (Module)
 
 State interpolation for components.
 
 See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Animation.md)
 
-# Collision
+# Collision (Module)
 
 O(n) AABB collision for objects.
 
