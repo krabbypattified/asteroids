@@ -45,6 +45,12 @@ O(n) AABB collision for objects.
 
 See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/BroadCollision.md)
 
+## Assets
+
+A programming pattern for managing assets.
+
+See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/Assets.md)
+
 ## Example
 
 How to make a game.
