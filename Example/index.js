@@ -1,8 +1,5 @@
-import { World, Input, Component } from './lib'
+import { Input, Canvas, Camera } from './game'
 import { Stars, Ship } from './components'
-
-// Create a new (full-page) canvas
-const world = new World({ noSmooth: true, scale: 4 })
 
 // Entities
 const stars = new Stars({ twinkle: 1 })
@@ -11,17 +8,17 @@ const projectiles = []
 
 // Controls
 const { KeyF, MouseLeft, WASD } = Input
-const mouse = Input.MouseRelative(ship) // Mouse in world relative to ship position
+const mouse = Input.MouseRelative(_ => ship.position)
 
 // Fullscreen keybind
-KeyF.down(_ => (world.fullscreen = !world.fullscreen))
+KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
 
 // Begin infinite twinkle animation
 stars.twinkle()
 
 // Game loop
-world.draw = _ => {
-    world.lerpAt(ship.position, .05)
+Spacetime.loop = _ => {
+    Camera.lerpAt(ship.position, .05)
 
     ship.steerTo(mouse.position)
 
