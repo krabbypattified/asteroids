@@ -17,8 +17,8 @@ _An algorithm for AABB collision detection in O(n) time complexity._
   density: .1,
   
   /**
-   * Get the list of (x,y) values that define the entity's hitbox.
-   * Less points is better because an AABB is generated every frame.
+   * Get the [[x, y], ...] values that define the entity's hitbox.
+   * Less points is better because an AABB is computed every frame.
    */
   getPoints: entity => entity.points
   
@@ -81,7 +81,7 @@ foreach iteration
 
 ### Chunk Creation
 - objective : recursively bisect the space in two dimensions so each chunk only needs to check collision for max X entities
-- time complexity : O(n/k) n = entities, k = maximum entities per chunk
+- time complexity : O(n/k) n = entities, k = maximum entities allowed per chunk
 
 ```
 foreach dimension
