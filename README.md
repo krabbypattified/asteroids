@@ -27,19 +27,25 @@ See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Module.
 
 ## Components
 
-A component is a blueprint for an object in the game. They are composed into a component tree.
+A component is a blueprint for an object in the game. They are composed and instantiated into a virtual DOM.
 
 See [Component.md](https://github.com/krabbypattified/asteroids/blob/master/Component.md)
 
 ## Animation
 
+State interpolation for components.
+
 See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Animation.md)
 
 # Collision
 
+O(n) AABB collision for objects.
+
 See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/BroadCollision.md)
 
 ## Example
+
+How to make a game.
 
 See [Example](https://github.com/krabbypattified/asteroids/tree/master/Example)
 
