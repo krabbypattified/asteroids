@@ -1,4 +1,4 @@
-import { world, Component } from './game'
+import { World, Input, Component } from './lib'
 import { Stars, Ship } from './components'
 
 // Create a new (full-page) canvas
@@ -10,10 +10,10 @@ const ship = new Ship({ health: 3, booster: 3 })
 const projectiles = []
 
 // Controls
-const KeyF = new Controls.key('KeyF')
-const MouseLeft = new Controls.key('MouseLeft')
-const arrowKeys = new Controls.WASD()
-const mouse = new Controls.Mouse(world, ship) // Mouse in world relative to ship position
+const KeyF = Input.KeyF
+const MouseLeft = Input.MouseLeft
+const arrowKeys = Input.WASD
+const mouse = Input.MouseRelative(world, ship) // Mouse in world relative to ship position
 
 // Fullscreen keybind
 KeyF.down(_ => (world.fullscreen = !world.fullscreen))
