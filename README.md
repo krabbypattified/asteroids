@@ -41,9 +41,10 @@ See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Anim
 
 ## Collision (Module)
 
-O(n) AABB collision for objects.
+O(n) AABB collision for n objects. (broad-phase)
+Polygonal collision with GJK (narrow-phase)
 
-See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/BroadCollision.md)
+See [Collision.md](https://github.com/krabbypattified/asteroids/blob/master/Collision.md)
 
 ## Assets
 
