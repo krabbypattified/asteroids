@@ -17,7 +17,7 @@ KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
 stars.twinkle()
 
 // Game loop
-Spacetime.loop = _ => {
+Spacetime.draw = _ => {
     Camera.lerpAt(ship.position, .05)
 
     ship.steerTo(mouse.position)
