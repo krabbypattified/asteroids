@@ -1,3 +1,10 @@
+const Bullet extends Component {
+  constructor() {
+    Spacetime.add(this)
+    setTimeout(_ => Spacetime.delete(this), 100)
+  }
+}
+
 const LeftBooster = Source([
   [ {lit: 0}, image('./LeftShip/0.png'), hitbox(0,0,10,20) ],
   [ {lit: 1}, image('./LeftShip/1.png'), hitbox(0,0,10,20) ],
