@@ -1,6 +1,6 @@
 ## Component
 
-_Like React/HTML components but for game entities._
+_Like a React/HTML component but for entities._
 
 ```js
 class Sword extends Component {
@@ -40,6 +40,8 @@ Sword.collision = true
 ```
 
 ## Asset Component
+
+_A low-level Component_
 
 ```js
 const Blade = Asset([
