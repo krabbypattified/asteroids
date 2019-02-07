@@ -14,7 +14,7 @@ export default {
    * Define a new configuration setting by returning it
    */
   initialize(configuration) {
-    return { animationSetting }
+    return { animationSetting: Number }
   }
   
   /**
