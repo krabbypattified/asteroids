@@ -1,4 +1,4 @@
-import { Input, Canvas, Camera } from './game'
+import { Input, Canvas, Camera, Spacetime } from './game'
 import { Stars, Ship } from './components'
 
 // Entities
