@@ -4,10 +4,9 @@ import { Stars, Ship } from './components'
 // Entities
 const stars = new Stars({ twinkle: 1 })
 const ship = new Ship({ health: 3, booster: 3 })
-const projectiles = []
 
 // Add entities to game
-Spacetime.add(stars, ship, projectiles)
+Spacetime.add(stars, ship)
 
 // Controls
 const { KeyF, MouseLeft, WASD } = Input
@@ -28,5 +27,5 @@ Spacetime.loop = _ => {
     if (WASD.active) ship.accelerate(WASD.position)
     else ship.decelerate()
 
-    if (MouseLeft.active) projectiles.concat(ship.fire())
+    if (MouseLeft.active) ship.fire() // projectiles add/remove themselves to spacetime
 }
