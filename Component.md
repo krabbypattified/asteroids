@@ -42,5 +42,11 @@ class Sword extends Component {
       })
     },
   }
+  
+  events = {
+    click(event) {
+      // handle event
+    },
+  }
 }
 ```
