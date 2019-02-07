@@ -1,6 +1,6 @@
-## UIComponents
+## UI Components
 
-_A set of cross-platform primitive DOM components._
+_A set of cross-platform primitive DOM components for game UI._
 
 This allows for React apps that use these primitives to create a UI.
 
