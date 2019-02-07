@@ -1,10 +1,9 @@
 ## Levels
 
-_A level loader._
+_A pattern for loading levels._
 
-Allows you to define upon loading a level how to:
+Allows you to define (upon loading a level) how to:
 - destroy objects
 - create objects
 - set object states
-
-Interacts with Spacetime to manage these objects.
+in spacetime.
