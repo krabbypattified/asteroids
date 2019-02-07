@@ -16,7 +16,7 @@ const mouse = Input.Mouse(_ => ship.position)
 KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
 
 // Begin infinite twinkle animation
-stars.twinkle()
+stars.twinkle.play()
 
 // Game loop
 Spacetime.loop = _ => {
