@@ -5,18 +5,12 @@ import { Stars, Ship } from './components'
 const stars = new Stars({ twinkle: 1 })
 const ship = new Ship({ health: 3, booster: 3 })
 
-// Add entities to game
-Spacetime.add(stars, ship)
-
 // Controls
 const { KeyF, MouseLeft, WASD } = Input
 const mouse = Input.Mouse(_ => ship.position)
 
 // Fullscreen keybind
 KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
-
-// Begin infinite twinkle animation
-stars.twinkle.play()
 
 // Game loop
 Spacetime.loop = _ => {
