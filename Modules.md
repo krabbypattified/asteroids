@@ -1,4 +1,4 @@
-## Module
+## Modules
 
 _Every functionality in asteroids is separated into a module. This is how a module is defined._
 
