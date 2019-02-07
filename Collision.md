@@ -32,6 +32,14 @@ _An algorithm for AABB collision detection in O(n) time complexity._
 }
 ```
 
+## Components
+
+Collision must be mutually exclusive (no two entities share the same instance of a colliding entity)
+
+```js
+MyComponent.collision = true
+```
+
 ## Algorithm
 
 This describes a 2D broad-phase collision detection algorithm that runs in O(n) time where n is the number of entities. It easily extends to 3D. It holds no state except entity bounding box calculated during the previous frame in order to prevent phasing. The algorithm performs 4 steps every frame: Rectangle Creation, Rectangle Sorting, Chunk Creation, and Collision Detection.
