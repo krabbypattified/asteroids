@@ -41,6 +41,7 @@ Sword.collision = true
 
 ## Asset Component
 
+```js
 const Blade = Asset([
   [ {length: 1}, assets.sword.short ],
   [ {length: 2}, assets.sword.long ],
@@ -51,3 +52,4 @@ states = [state, ...pixels, ...polygons]
 state = { foo: 7 }
 pixels = 'fileData'
 polygon = [[x,y], ...]
+```
