@@ -6,9 +6,12 @@ const stars = new Stars({ twinkle: 1 })
 const ship = new Ship({ health: 3, booster: 3 })
 const projectiles = []
 
+// Add entities to game
+Spacetime.add(stars, ship, projectiles)
+
 // Controls
 const { KeyF, MouseLeft, WASD } = Input
-const mouse = Input.MouseRelative(_ => ship.position)
+const mouse = Input.Mouse(_ => ship.position)
 
 // Fullscreen keybind
 KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
@@ -17,7 +20,7 @@ KeyF.down(_ => (Canvas.fullscreen = !Canvas.fullscreen))
 stars.twinkle()
 
 // Game loop
-Spacetime.render = _ => {
+Spacetime.loop = _ => {
     Camera.lerpAt(ship.position, .05)
 
     ship.steerTo(mouse.position)
@@ -26,6 +29,4 @@ Spacetime.render = _ => {
     else ship.decelerate()
 
     if (MouseLeft.active) projectiles.concat(ship.fire())
-
-    return [stars, ship, ...projectiles] // Render these entities
 }
