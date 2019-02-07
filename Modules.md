@@ -6,8 +6,15 @@ _Every functionality in asteroids is separated into a module. This is how a modu
 import core from 'asteroids/core'
 
 export default {
-  name: 'animations', // name for this module
-  require: [core], // dependencies on other modules
+  /**
+   * Give this module a name
+   */
+  name: 'animations',
+  
+  /**
+   * List dependencies on other modules
+   */
+  require: [core],
   
   /**
    * List configuration settings defined by this module
