@@ -55,3 +55,14 @@ state = { foo: 7 }
 pixels = 'fileData'
 polygon = [[x,y], ...]
 ```
+
+## Managing Assets
+
+```js
+const assets = {
+ sword: {
+   short: import('./Sword/short.png'),
+   long: 'anythingSyncOrAsync',
+ }
+}
+```
