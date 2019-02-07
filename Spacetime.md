@@ -1,6 +1,8 @@
 ## Spacetime
 
-_Defines a way to manage objects in space through time._
+_Defines a coordinate system, game loop, and temporal* object manager._
+
+_* it can keep track of previous states with a `bufferSpacetime` setting so other modules like Collision can interpolate through time._
 
 ```js
 const objects = new WeakSet()
