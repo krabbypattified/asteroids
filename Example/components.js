@@ -1,5 +1,5 @@
 const Bullet extends Component {
-  constructor() {
+  create() {
     Spacetime.add(this)
     setTimeout(_ => Spacetime.delete(this), 100)
   }
@@ -21,14 +21,14 @@ class LeftShip extends Component {
   data = { engine: 0, health: 3 }
   computed = { lit: _ => this.engine > 2 ? 1 : 0 }
   
-  render({ ctx }) {
+  render() {
     const { engine, health, lit } = this
     
-    ctx
+    this.context
       .opacity(health / 3)
       .render(new LeftBooster({ lit }))
     
-    ctx
+    this.context
       .translate(0, 8)
       .render(new LeftFlame({ level: engine }))
   }
@@ -40,24 +40,26 @@ class Ship extends Component {
   middleShip = new MiddleShip()
   rightShip = new RightShip()
 
-  data = {
-    engine: 1,
-    health: 3,
-    flying: false,
+  engine = 1
+  health = 3
+  flying = false
+
+  create() {
+    Spacetime.add(this)
   }
   
-  render({ ctx }) {
+  render() {
     const { engine, health } = this
     
-    ctx
+    this.context
       .translate(0, 9)
       .render(this.leftShip.set({ engine, health }))
     
-    ctx
+    this.context
       .translate(4, 0)
       .render(this.middleShip.set({ engine }))
     
-    ctx
+    this.context
       .translate(13, 9)
       .render(this.rightShip.set({ engine }))
   }
@@ -80,22 +82,23 @@ class Ship extends Component {
   }
   
   setEngine(next, duration = Infinity, condition = false) {
-    return this.animate({
+    return this.boostersOn.interpolate({
       next: _ => ({ engine: this.engine + next }),
       duration,
       condition: condition && _ => condition(this.engine),
     })
   }
 
-  animations = {
-    async boostersOn() {
-      const dir = sign(3 - this.engine)
-      await this.setEngine(.1 * dir, 30, dir > 0 ? v => v < 3 : v => v > 3)
-      
-      while(true) {
-        await this.setEngine(.1, 20)
-        await this.setEngine(-.1, 20)
-      }
+  async boostersOn() {
+    const dir = sign(3 - this.engine)
+    await this.setEngine(.1 * dir, 30, dir > 0 ? v => v < 3 : v => v > 3)
+
+    while(true) {
+      await this.setEngine(.1, 20)
+      await this.setEngine(-.1, 20)
     }
   }
 }
+
+Ship.animations = animations
+Ship.props = ['engine', 'health', 'flying']
