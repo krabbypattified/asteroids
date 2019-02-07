@@ -6,40 +6,45 @@ _Every functionality in asteroids is separated into a module. This is how a modu
 import core from 'asteroids/core'
 
 export default {
-  name: 'animations', // name for this module
-  require: [core], // dependencies on other modules
+  /**
+   * Give this module a name
+   */
+  name: 'animations',
   
   /**
-   * Hook into a new game, i.e. new Game(configuration)
-   * Define a new configuration setting by returning it
+   * List dependencies on other modules
    */
-  initialize(configuration) {
-    return { animationSetting }
-  }
+  require: [core],
   
   /**
-   * Hook to define new classes in the library by returning them
-   * Define is separate from extend because it performs a check
-   * to ensure that a class is only ever defined in ONE module.
+   * List configuration settings defined by this module
    */
-  define(library) {
-    return { NewClass }
-  },
+  configure: ['animationSetting'],
   
   /**
-   * Hook to extend existing classes in the library by returning them
+   * List library components defined by this module
    */
-  extend(library) {
+  define: ['NewClass'],
+   
+  /**
+   * List library components extended by this module
+   */
+  extend: ['OtherClass'],
+  
+  /**
+   * Initialize your module during the Game creation hook.
+   */
+  initialize(library, configuration) {
     const { Component } = library
     const { prototype } = Component
     const { created } = prototype
+    
+    libary.NewClass = 'something'
     
     prototype.created = function() {
       Object.assign(this, this.animations)
       created()
     }
-    
-    return { Component }
-  },  
+  }
 }
 ```
