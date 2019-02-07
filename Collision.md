@@ -1,4 +1,4 @@
-## Broad Collision
+## Broad-phase Collision
 
 _An algorithm for AABB collision detection in O(n) time complexity._
 
