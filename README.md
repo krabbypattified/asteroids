@@ -49,7 +49,7 @@ See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master
 
 A programming pattern for managing assets.
 
-See [BroadCollision.md](https://github.com/krabbypattified/asteroids/blob/master/Assets.md)
+See [Assets.md](https://github.com/krabbypattified/asteroids/blob/master/Assets.md)
 
 ## Example
 
