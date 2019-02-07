@@ -46,12 +46,6 @@ Polygonal collision with GJK (narrow-phase)
 
 See [Collision.md](https://github.com/krabbypattified/asteroids/blob/master/Collision.md)
 
-## Assets
-
-A programming pattern for managing assets.
-
-See [Assets.md](https://github.com/krabbypattified/asteroids/blob/master/Assets.md)
-
 ## Example
 
 How to make a game.
