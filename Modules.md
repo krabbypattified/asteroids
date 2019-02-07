@@ -10,36 +10,34 @@ export default {
   require: [core], // dependencies on other modules
   
   /**
-   * Hook into a new game, i.e. new Game(configuration)
-   * Define a new configuration setting by returning it
+   * List configuration settings defined by this module
    */
-  initialize(configuration) {
-    return { animationSetting: Number }
-  }
+  configure: ['animationSetting'],
   
   /**
-   * Hook to define new classes in the library by returning them
-   * Define is separate from extend because it performs a check
-   * to ensure that a class is only ever defined in ONE module.
+   * List library components defined by this module
    */
-  define(library) {
-    return { NewClass }
-  },
+  define: ['NewClass'],
+   
+  /**
+   * List library components extended by this module
+   */
+  extend: ['OtherClass'],
   
   /**
-   * Hook to extend existing classes in the library by returning them
+   * Initialize your module during the Game creation hook.
    */
-  extend(library) {
+  initialize(library, configuration) {
     const { Component } = library
     const { prototype } = Component
     const { created } = prototype
+    
+    libary.NewClass = 'something'
     
     prototype.created = function() {
       Object.assign(this, this.animations)
       created()
     }
-    
-    return { Component }
-  },  
+  }
 }
 ```
