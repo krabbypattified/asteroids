@@ -9,38 +9,32 @@ class Sword extends Component {
   damage = 1
   get shine () { return this.damage / 30 }
 
-  props = { damage: Number }
-
-  created() {
+  create() {
     this.glimmer.play()
   }
-
-  destroyed() {
-    this.glimmer.stop() // .pause()
-  }
   
-  render() {
-    const { context, sharpness, shine } = this
-    
-    context
+  render() {    
+    this.spacetime
       .transform(a,b,c,d,e,f)
       .render(blade)
     
-    context
+    this.spacetime
       .translateX(-10)
       .render(handle)
   }
-
-  sharpen(amt) { this.sharpness += amt }
-
-  animations = {
-    async glimmer() {
-      await this.animate({
-        next: _ => ({ sharpness: this.sharpness + .2 }),
-        duration: 60,
-        condition: _ => this.sharpness > 5
-      })
-    },
+  
+  sharpen(value) { this.sharpness += value }
+  
+  async glimmer(animate) {
+    await animate({
+      next: _ => ({ sharpness: this.sharpness + .2 }),
+      duration: 60,
+      condition: _ => this.sharpness > 5
+    })
   }
 }
+
+Sword.public = { damage: Number }
+Sword.animations = ['glimmer']
+Sword.collision = true
 ```
