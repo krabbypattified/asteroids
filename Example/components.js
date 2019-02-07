@@ -5,13 +5,13 @@ const Bullet extends Component {
   }
 }
 
-const LeftBooster = Source([
+const LeftBooster = Asset([
   [ {lit: 0}, image('./LeftShip/0.png'), hitbox(0,0,10,20) ],
   [ {lit: 1}, image('./LeftShip/1.png'), hitbox(0,0,10,20) ],
 ])
 
 
-const LeftFlame = Source([
+const LeftFlame = Asset([
   [ {level: 0}, image('./LeftFlame/0.png'), hitbox(0,0,10,10) ],
   [ {level: 1}, image('./LeftFlame/1.png'), hitbox(0,0,10,10) ],
 ])
