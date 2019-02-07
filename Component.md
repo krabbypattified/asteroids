@@ -38,3 +38,16 @@ Sword.public = { damage: Number }
 Sword.animations = ['glimmer']
 Sword.collision = true
 ```
+
+## Asset Component
+
+const Blade = Asset([
+  [ {length: 1}, assets.sword.short ],
+  [ {length: 2}, assets.sword.long ],
+])
+
+Asset([...states])
+states = [state, ...pixels, ...polygons]
+state = { foo: 7 }
+pixels = 'fileData'
+polygon = [[x,y], ...]
