@@ -12,7 +12,7 @@ _* it can keep track of previous states with a `bufferSpacetime` setting so othe
 ```
 
 ```js
-const objects = new WeakSet()
+const Spacetime = new WeakSet()
 const x = new MyComponent()
 Spacetime.add(x)
 Spacetime.delete(x)
