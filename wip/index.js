@@ -1,9 +1,9 @@
-import Game from './asteroids'
-import core from './asteroids/core'
+import Game from './asteroids/index.js'
+import core from './asteroids/core/core.js'
 
 const game = new Game({
   el: 'canvas',
-  scale: 4,
+  // scale: 4,
   modules: [core],
 })
 

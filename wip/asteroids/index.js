@@ -1,18 +1,19 @@
 export default class Game {
   constructor(configuration) {
-    if (!configuration || !configuration.modules) throw new Error(`Invalid configuration object.`)
+    const validated = validateConfiguration(configuration)
+    if (validated instanceof Error) return console.error(validated)
 
     const modules = right(configuration.modules).map(resolveModules).map(validateModules).value
-    if (modules instanceof Error) throw modules
+    if (modules instanceof Error) return console.error(modules)
 
-    const result = right({ modules, configuration }).map(validateModuleConfiguration).map(initializeModules).value
-    if (result instanceof Error) throw result
+    const initialized = right({ modules, configuration, library: this }).map(validateModuleConfiguration).map(initializeModules).value
+    if (initialized instanceof Error) return console.error(initialized)
   }
 }
 
 function left(value) {
   return new class Left {
-    value = value
+    constructor() { this.value = value }
     map() {
       return this
     }
@@ -21,7 +22,7 @@ function left(value) {
 
 function right(value) {
   return new class Right {
-    value = value
+    constructor() { this.value = value }
     map(function_) {
       const return_ = function_(this.value)
       if (return_ instanceof Error) return left(return_)
@@ -30,22 +31,31 @@ function right(value) {
   }
 }
 
+function validateConfiguration(configuration) {
+  if (!configuration || !Array.isArray(configuration.modules)) return new Error(`Invalid configuration object.`)
+}
+
 function resolveModules(modules, path = []) {
-  let resolved = new Set()
+  let resolvedModules = new Set()
 
   for (const module_ of modules) {
     const nModule = normalizeModule(module_)
     if (nModule instanceof Error) return nModule
 
-    const circular = path.indexOf(nModule.name)
+    const circular = path.indexOf(nModule.name) >= 0
     const nextPath = [...path, nModule.name]
     if (circular) return new Error(`Circular dependency: ${nextPath.join(' - ')}`)
 
-    if (nModule.require.length) resolved = new Set([...resolved, ...resolveModules(nModule.require, nextPath)])
-    resolved.add(module_)
+    if (nModule.require.length) {
+      const subModules = resolveModules(nModule.require, nextPath)
+      if (subModules instanceof Error) return subModules
+      resolvedModules = new Set([...resolvedModules, ...subModules])
+    }
+
+    resolvedModules.add(nModule)
   }
 
-  return resolved
+  return resolvedModules
 }
 
 function normalizeModule(module_) {
@@ -89,8 +99,9 @@ function validateModules(modules) {
   return modules
 }
 
-function validateModuleConfiguration({ modules, configuration }) {
-  const definedConfiguration = new Set()
+function validateModuleConfiguration(arg) {
+  const { modules, configuration } = arg
+  const definedConfiguration = new Set(['modules'])
 
   for (const module_ of modules) {
     for (const setting of module_.defineConfiguration) {
@@ -98,17 +109,18 @@ function validateModuleConfiguration({ modules, configuration }) {
     }
   }
 
-  for (const setting of configuration) {
+  for (const setting in configuration) {
     if (!definedConfiguration.has(setting)) return new Error(`Unrecognized configuration setting ${setting}.`)
   }
 
-  return { modules, configuration }
+  return arg
 }
 
-function initializeModules({ modules, configuration }) {
+function initializeModules(arg) {
+  const { modules, configuration, library } = arg
   for (const module_ of modules) {
     try {
-      const error = module_.initialize(configuration)
+      const error = module_.initialize(library, configuration)
       if (error) return error
     } catch(error) { return error }
   }
