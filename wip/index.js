@@ -1,12 +1,8 @@
-import Game from './asteroids/index.js'
-import core from './asteroids/core/core.js'
+import { Canvas, Spacetime } from './game.js'
+import { Ship } from './components/ship.js'
 
-const game = new Game({
-  el: 'canvas',
-  // scale: 4,
-  modules: [core],
-})
+console.log(Canvas)
 
-const { Component } = game
+const ship = new Ship({ health: 2 })
 
-export { Component }
+Spacetime.add(ship)

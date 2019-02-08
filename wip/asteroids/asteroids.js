@@ -1,3 +1,9 @@
+/**
+ * This is the entry point for Asteroids.
+ * It is nothing more than a module resolver.
+ * The modules themselves are responsible for implementing the library.
+ */
+
 export default class Game {
   constructor(configuration) {
     const validated = validateConfiguration(configuration)
