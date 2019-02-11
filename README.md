@@ -29,13 +29,19 @@ See [Module.md](https://github.com/krabbypattified/asteroids/blob/master/Modules
 
 ## Components
 
-A component is a blueprint for an object in the game. They are composed and instantiated into a virtual DOM.
+A component is a blueprint for an object in the game.
+They are composed and instantiated into a virtual DOM.
+They have no built-in functionality by default.
 
-See [Components.md](https://github.com/krabbypattified/asteroids/blob/master/Components.md)
+## Prototype
+
+When a component extends the Prototype class, it gains extra functionality and syntactic sugar.
+
+See [Prototype.md](https://github.com/krabbypattified/asteroids/blob/master/Prototype.md)
 
 ## Animation
 
-State interpolation for components.
+State interpolation for prototypes.
 
 See [Animation.md](https://github.com/krabbypattified/asteroids/blob/master/Animation.md)
 
