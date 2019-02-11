@@ -2,10 +2,21 @@
 <style>
 body { margin: 0 }
 html, body { height:100% }
-canvas {
-	display: block;
-	width: 100%;
-	height: 100%;
-}
+canvas { display: block }
 </style>
+<script>
+const canvas = document.querySelector('canvas')
+
+window.addEventListener('keydown', event => {
+  if (event.code === 'KeyF') canvas.requestFullscreen()
+})
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+}
+
+resizeCanvas()
+window.addEventListener('resize', resizeCanvas)
+</script>
 <script type=module src=index.js></script>
