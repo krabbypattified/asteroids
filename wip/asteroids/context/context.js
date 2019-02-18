@@ -3,7 +3,7 @@
  */
 
 export default {
-  name: 'canvas',
+  name: 'context',
   configure: ['el'],
   define: ['Context'],
   initialize(library, { el }) {

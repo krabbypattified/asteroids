@@ -55,7 +55,6 @@ function resolveModule(module, dmap, path) {
 
   const dependency = dmap.get(module.name)
   if (dependency && dependency !== module) return new Error(`Found multiple instances of the ${dependency.name} module.`)
-  dmap.set(module.name, module)
 
   const subModules = module.require || []
 
@@ -63,6 +62,8 @@ function resolveModule(module, dmap, path) {
     const modules = resolveModule(subModule, dmap, [...path, module.name])
     if (modules instanceof Error) return modules
   }
+
+  dmap.set(module.name, module)
 
   return dmap
 }
@@ -100,7 +101,7 @@ function validateModules(modules) {
 
     for (const extension of module.extend) {
       const dModules = definitions[extension]
-      if (!dModules) return new Error(`Tried to extend ${extension} but it is undefined.`)
+      if (!dModules) return new Error(`${module.name} tried to extend ${extension} but it is not yet defined.`)
       else dModules.push(module)
     }
   }

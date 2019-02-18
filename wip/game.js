@@ -1,7 +1,7 @@
 import Game from './asteroids/asteroids.js'
-import core from './asteroids/core/core.js'
+import base from './asteroids/2d/2d.js'
 
-export const { Context, Time, Space } = new Game({
-  modules: [core],
+export const { Context, Matrix, Objects, Pixels, Prototype, Time } = new Game({
+  modules: [base],
   el: 'canvas',
 })

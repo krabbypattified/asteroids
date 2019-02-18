@@ -1,42 +1,18 @@
-import time from '../time/time.js'
-import objects from '../objects/objects.js'
+import context from '../context/context.js'
 
 /**
- * The render module delegates rendering low-level components to another
- * render modules, like renderImage, depending on the type of the component.
+ * The render module delegates rendering components to another the modules
+ * that define the components. It renders renderable objects every frame.
  */
-
-class Render {
-  constructor(time) {
-    this.map = new Map()
-    time.step(_ => {
-      // TODO traverse objects in a hierarchy (maybe in other module) and render things.
-
-      // space requires this module with its render method?
-      // ^whatever the module that does the component tree is (maybe yet another module
-      // maybe this is even a module that extends Prototype)
-    }, -1)
-  }
-
-  set(type, renderer) {
-    this.map.set(type, renderer)
-  }
-}
 
 export default {
   name: 'render',
-  require: [time, objects],
   define: ['Render'],
   initialize(library) {
-    library.Render = new Render(library.Time)
+    library.Render = class Render {
+      static render(object) {
+        if (object.render) object.render()
+      }
+    }
   },
 }
-
-
-// export default {
-//  name: 'renderImage',
-//  extend: ['Render'],
-//  initialize(library) {
-//    library.Render.set(Image, image => /*render here*/image)
-//  },
-// }
