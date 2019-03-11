@@ -1,12 +1,15 @@
-import { Pixels, Prototype } from '../game.js'
+import { Pixels, Prototype } from '../asteroids.js'
 
 const LeftBooster = Prototype.asset([
-  [{ health: 0, lit: 0 }, new Pixels('./assets/Ship/LeftBooster/health0.png')],
-  [{ health: 1, lit: 0 }, new Pixels('./assets/Ship/LeftBooster/health1.png')],
-  [{ health: 2, lit: 0 }, new Pixels('./assets/Ship/LeftBooster/health2.png')],
-  [{ health: 3, lit: 0 }, new Pixels('./assets/Ship/LeftBooster/health3.png')],
+  [{ health: 0 }, new Pixels('./assets/Ship/LeftBooster/health0.png')],
+  [{ health: 1 }, new Pixels('./assets/Ship/LeftBooster/health1.png')],
+  [{ health: 2 }, new Pixels('./assets/Ship/LeftBooster/health2.png')],
+  [{ health: 3 }, new Pixels('./assets/Ship/LeftBooster/health3.png')],
   [{ health: 3, lit: 1 }, new Pixels('./assets/Ship/LeftBooster/lit.png')],
-])
+].map(([state, pixels]) => {
+  pixels.parallax = 4
+  return [{ lit: 0, ...state }, pixels]
+}))
 
 const LeftFlame = Prototype.asset([
   [{ booster: 0 }],
@@ -18,8 +21,13 @@ const LeftFlame = Prototype.asset([
 ])
 
 const MiddleBooster = Prototype.asset([
-  [{ lit: 0 }, new Pixels('./assets/Ship/MiddleBooster/0.png')]
-  [{ lit: 1 }, new Pixels('./assets/Ship/MiddleBooster/1.png')]
+  [{ lit: 0 }, new Pixels('./assets/Ship/MiddleBooster/0.png')],
+  [{ lit: 1 }, new Pixels('./assets/Ship/MiddleBooster/1.png')],
+])
+
+const Stars = Prototype.asset([
+  [{ twinkle: 0 }, new Pixels('./assets/Ship/Stars/0.png')],
+  [{ twinkle: 1 }, new Pixels('./assets/Ship/Stars/1.png')],
 ])
 
 // const MiddleFlame = Prototype.asset([
@@ -48,11 +56,11 @@ const MiddleBooster = Prototype.asset([
 export class Ship extends Prototype {
   constructor() {
     super(...arguments)
-    this.boost = new LeftBooster({ health: 3, lit: 1 })
+    this.stars = new Stars({ twinkle: 0 })
   }
 
   render() {
     this.matrix
-      .render(this.boost)
+      .render(this.stars)
   }
 }
